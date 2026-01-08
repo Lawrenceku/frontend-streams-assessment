@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <Layout>
       <div className="flex h-full min-h-[calc(100vh-64px)]">
-        <main className="flex-1 bg-[#FAFBFC] relative min-h-[calc(100vh-56px)]">
+        <main className="flex-1 bg-white relative min-h-[calc(100vh-56px)]">
 
           {/* Header + Input: Left aligned with the grid (shifted by sidebar width on desktop) */}
           <div className="w-full flex flex-col md:flex-row">
