@@ -27,7 +27,7 @@ const data = {
       icon: Home,
     },
     {
-      title: "Studies",
+      title: "Insights",
       url: "/dashboard/tests",
       icon: Binoculars,
     },

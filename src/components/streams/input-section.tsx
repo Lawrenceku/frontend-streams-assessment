@@ -6,9 +6,10 @@ import { Sparkles } from "lucide-react";
 interface InputSectionProps {
     isFocused: boolean;
     setIsFocused: (focused: boolean) => void;
+    onAnalyze?: () => void;
 }
 
-export function InputSection({ isFocused, setIsFocused }: InputSectionProps) {
+export function InputSection({ isFocused, setIsFocused, onAnalyze }: InputSectionProps) {
     return (
         <div
             className={cn(
@@ -35,7 +36,8 @@ export function InputSection({ isFocused, setIsFocused }: InputSectionProps) {
                 </div>
 
                 <AppButton
-                    className="bg-[#9CA3AF] hover:bg-[#6B7280] text-white rounded-[4px] px-4 py-1.5 h-auto text-[16px] font-medium transition-colors"
+                    onClick={onAnalyze}
+                    className={` bg-[#9CA3AF] hover:bg-[#6B7280] text-white rounded-[4px] px-4 py-1.5 h-auto text-[16px] font-medium transition-colors`}
                 >
                     Analyze
                 </AppButton>
