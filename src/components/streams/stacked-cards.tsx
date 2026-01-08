@@ -68,12 +68,10 @@ export function StackedCards() {
         setIsDragging(false);
 
         const { x, y } = dragOffset;
-        // Trigger back-swap if dragged far enough in ANY direction
         if (Math.abs(x) > DRAG_THRESHOLD || Math.abs(y) > DRAG_THRESHOLD) {
             const topCardId = order[0];
             setIsSwapping(topCardId);
 
-            // Brief delay to allow the "snap to back" animation to finish before reordering state
             setTimeout(() => {
                 setOrder((prev) => {
                     const newOrder = [...prev];
@@ -83,7 +81,7 @@ export function StackedCards() {
                 });
                 setIsSwapping(null);
                 setDragOffset({ x: 0, y: 0 });
-            }, 400); // Matches the duration-500 transition roughly
+            }, 400);
         } else {
             setDragOffset({ x: 0, y: 0 });
         }
@@ -106,13 +104,10 @@ export function StackedCards() {
                     const isTop = position === 0;
                     const isBeingSentToBack = isSwapping === cardIndex;
 
-                    // Z-index handling: ensure the card moving to back goes behind current stack
                     let zIndex = INITIAL_CARDS.length - position;
                     if (isBeingSentToBack) zIndex = 0;
 
                     const rotation = ROTATIONS[position];
-
-                    // Determine Transform
                     let transform = `translate(0px, 0px) rotate(${rotation}deg)`;
 
                     if (isTop && isDragging) {
