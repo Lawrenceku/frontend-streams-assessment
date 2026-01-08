@@ -5,7 +5,7 @@ This project is a frontend implementation of **Page 2 of the dashboard**, comple
 
 ---
 
-## 🛠 Approach & Implementation
+## Approach & Implementation
 
 My approach focused on **meeting the functional requirements first**, then enhancing the experience with clean architecture and refined interactions where appropriate.
 
@@ -56,7 +56,7 @@ My approach focused on **meeting the functional requirements first**, then enhan
 
 ---
 
-## 🧱 Architecture & Tech Stack
+## Architecture & Tech Stack
 
 * **Next.js** — Application framework
 * **Tailwind CSS** — Utility-first styling and responsive layouts
@@ -66,7 +66,7 @@ Component structure and naming were kept modular and readable to align with best
 
 ---
 
-## 💡 Assumptions & Design Decisions
+## Assumptions & Design Decisions
 
 ### Desktop-First Focus
 

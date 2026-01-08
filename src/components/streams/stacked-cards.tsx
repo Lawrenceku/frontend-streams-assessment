@@ -65,9 +65,9 @@ export function StackedCards() {
     };
 
     return (
-        <div className="relative w-full h-[300px] md:h-[350px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-[300px] md:h-[350px] flex items-center justify-center">
             <div
-                className="relative w-full max-w-[478px]"
+                className="relative w-full max-w-[478px] z-30"
                 style={{ height: "272.75px", perspective: "1000px" }}
                 onPointerDown={handlePointerDown}
                 onPointerMove={handlePointerMove}
@@ -79,7 +79,8 @@ export function StackedCards() {
                     const isTop = position === 0;
                     const isBeingSentToBack = isSwapping === cardIndex;
 
-                    let zIndex = INITIAL_CARDS.length - position;
+                    // Boosted Z-index logic
+                    let zIndex = (INITIAL_CARDS.length - position) + 10;
                     if (isBeingSentToBack) zIndex = 0;
 
                     const rotation = ROTATIONS[position];
@@ -100,7 +101,7 @@ export function StackedCards() {
                         <div
                             key={card.id}
                             className={cn(
-                                "absolute z-50 inset-0 rounded-[16px] p-4 md:p-8 flex flex-col border border-[#E3E8EE] shadow-sm select-none cursor-grab active:cursor-grabbing",
+                                "absolute inset-0 rounded-[16px] p-4 md:p-8 flex flex-col border border-[#E3E8EE] shadow-sm select-none cursor-grab active:cursor-grabbing",
                                 "w-full h-full",
                                 (!isDragging || !isTop) && "transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
                             )}

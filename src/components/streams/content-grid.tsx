@@ -26,7 +26,7 @@ export function ContentGrid() {
             </div>
 
             {/* Section 2 (Stacked Cards) - Top Right */}
-            <div className="relative h-full min-h-[350px] bg-white border border-[#E3E8EE] rounded-tr-[16px] p-[24px] border-b-0">
+            <div className="relative z-20 h-full min-h-[350px] bg-white border border-[#E3E8EE] rounded-tr-[16px] p-[24px] border-b-0">
                 <StackedCards />
             </div>
 
