@@ -88,7 +88,7 @@ export function NavMain({
                 )}
 
                 {active && (
-                  <span className="absolute right-1 text-[10px] text-[#625afa] shrink-0">
+                  <span className="absolute right-3 text-[10px] text-[#625afa] shrink-0">
                     ✦
                   </span>
                 )}
