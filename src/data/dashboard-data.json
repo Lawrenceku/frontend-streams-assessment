@@ -1,0 +1,41 @@
+{
+    "sections": [
+        {
+            "id": "section-1",
+            "title": "Section 1",
+            "subtitle": "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "chip": "✦ Chip"
+        },
+        {
+            "id": "section-3",
+            "title": "Section 3",
+            "subtitle": "Commodo consequat",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+            "chip": null
+        }
+    ],
+    "dataSource": {
+        "title": "Data Source",
+        "items": [
+            {
+                "author": "Sawyer Merritt",
+                "date": "November 20,2025",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....",
+                "icon": "app-store-icon.svg"
+            },
+            {
+                "author": "Jessibeesocial",
+                "date": "November 20,2025",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....",
+                "icon": "app-store-icon.svg"
+            },
+            {
+                "author": "Sawyer Merritt",
+                "date": "November 20,2025",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....",
+                "icon": "app-store-icon.svg"
+            }
+        ]
+    }
+}
