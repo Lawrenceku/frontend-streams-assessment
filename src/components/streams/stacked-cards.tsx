@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
+import analysisData from "@/data/analysis-data.json";
 
 interface StackCardData {
     id: number;
@@ -10,38 +11,12 @@ interface StackCardData {
     background: string;
 }
 
-const INITIAL_CARDS: StackCardData[] = [
-    {
-        id: 1,
-        title: "Section 2",
-        description: "Commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        background: "linear-gradient(90deg, #E0DEFE 0%, #EDEEF0 54.56%, #EFEFFF 100%)",
-    },
-    {
-        id: 2,
-        title: "Analytics Insight",
-        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        background: "#F7F8F9",
-    },
-    {
-        id: 3,
-        title: "Predictive Flows",
-        description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        background: "#EFEFFF",
-    },
-    {
-        id: 4,
-        title: "Data Integrity",
-        description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        background: "#4F566B",
-    },
-];
-
 const ROTATIONS = [0, 1, 2, 3];
 const DRAG_THRESHOLD = 100;
 
 export function StackedCards() {
-    const [order, setOrder] = useState([0, 1, 2, 3]);
+    const INITIAL_CARDS = analysisData.stackedCards;
+    const [order, setOrder] = useState(INITIAL_CARDS.map((_, i) => i));
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
     const [isSwapping, setIsSwapping] = useState<number | null>(null); // Track card moving to back
@@ -138,14 +113,14 @@ export function StackedCards() {
                                 touchAction: "none"
                             }}
                         >
-                            <h3 className={cn("text-[18px] md:text-[20px] font-bold tracking-tight", textColor)}>
+                            <h3 className={cn("text-[18px] md:text-[24px] font-bold tracking-tight", textColor)}>
                                 {card.title}
                             </h3>
                             <div className="mt-4 md:mt-6">
-                                <h4 className={cn("text-[12px] md:text-[14px] uppercase tracking-wider font-semibold mb-1 md:mb-2 opacity-80", textColor)}>
+                                <h4 className={cn("text-[12px] md:text-[20px] font-medium mb-1 md:mb-2 opacity-80", textColor)}>
                                     Insights & Overview
                                 </h4>
-                                <p className={cn("text-[13px] md:text-[15px] leading-relaxed line-clamp-4 md:line-clamp-none", subTextColor)}>
+                                <p className={cn("text-[13px] md:text-[16px] line-clamp-4 md:line-clamp-none", subTextColor)}>
                                     {card.description}
                                 </p>
                             </div>

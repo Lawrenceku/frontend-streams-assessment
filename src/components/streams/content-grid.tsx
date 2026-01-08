@@ -2,10 +2,10 @@ import * as React from "react";
 import { ChevronDown, FileText } from "lucide-react";
 import Image from "next/image";
 import { StackedCards } from "./stacked-cards";
-import dashboardData from "@/data/dashboard-data.json";
+import analysisData from "@/data/analysis-data.json";
 
 export function ContentGrid() {
-    const { sections, dataSource } = dashboardData;
+    const { sections, dataSource } = analysisData;
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1200px] mx-auto mt-8 gap-0 border-separate">
@@ -20,7 +20,7 @@ export function ContentGrid() {
                     </p>
                 </div>
 
-                <div>
+                <div className="mb-8">
                     <span className="bg-[#EEF2FF] text-[#6366F1] text-[11px] font-medium px-2 py-1 rounded-[8px]">{sections[0].chip}</span>
                 </div>
             </div>
