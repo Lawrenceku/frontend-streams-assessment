@@ -19,24 +19,32 @@ import {
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
+import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 type NavItem = {
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  isActive?: boolean;
+  items?: {
     title: string;
     url: string;
-    icon?: LucideIcon;
-    isActive?: boolean;
-    items?: {
-      title: string;
-      url: string;
-    }[];
-  };
+  }[];
+};
 
 export function NavMain({
   items,
+  secondaryItems,
 }: {
   items: NavItem[];
+  secondaryItems?: NavItem[];
 }) {
   const pathname = usePathname();
-
   const routesSplit = pathname.split("/");
 
   /**
@@ -50,90 +58,61 @@ export function NavMain({
     if (route === "/dashboard") {
       return isDashboard;
     }
-
     return baseRoute === route.split("/")[2];
   };
 
+  const renderItem = (item: NavItem) => {
+    const active = item.title === "Streams";
+    return (
+      <SidebarMenuItem key={item.title}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <SidebarMenuButton
+              asChild
+              className={cn(
+                "justify-center w-full h-auto py-2 transition-all duration-200",
+                active
+                  ? "bg-[#F7F8F9] rounded-[12px]"
+                  : "hover:bg-transparent"
+              )}
+            >
+              <a href={item.url} className={cn("flex items-center justify-center", active && "gap-[10px]")}>
+                {item.icon && (
+                  <item.icon
+                    className={cn(
+                      "w-[40px] h-[40px] transition-colors duration-200",
+                      active ? "text-[#625afa]" : "text-[#4B5563] hover:text-[#111928]"
+                    )}
+                  />
+                )}
+                <span className="sr-only">{item.title}</span>
+                {active && (
+                  <span className="text-[10px] text-[#625afa]">✦</span>
+                )}
+              </a>
+            </SidebarMenuButton>
+          </TooltipTrigger>
+          <TooltipContent side="right">
+            <p>{item.title}</p>
+          </TooltipContent>
+        </Tooltip>
+      </SidebarMenuItem>
+    );
+  };
+
   return (
-    <SidebarGroup>
-      <SidebarMenu className="gap-[12px]">
-        {items.map((item) => (
+    <SidebarGroup className="px-5 pt-[36px]">
+      <SidebarMenu className="gap-[16px] place-items-center">
+        {items.map(renderItem)}
+
+        {secondaryItems && secondaryItems.length > 0 && (
           <>
-            {item.items && item.items.length > 0 ? (
-              <Collapsible
-                asChild
-                defaultOpen={isActive(item.url)}
-                className={cn("group/collapsible")}>
-                <SidebarMenuItem
-                  className={cn(
-                    isActive(item.url) && "bg-[#EDEDFF] rounded-[12px]"
-                  )}>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip={item.title}>
-                      {item.icon && (
-                        <item.icon
-                          className={cn(
-                            "text-sidebar-primary-foreground w-[12px] h-[12px]",
-                            isActive(item.url) && "text-[#623BA5]"
-                          )}
-                        />
-                      )}
-                      <span
-                        className={cn(isActive(item.url) && "text-[#623BA5]")}>
-                        {item.title}
-                      </span>
-                      <ChevronDown
-                        className={cn(
-                          "ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180",
-                          isActive(item.url) && "text-[#623BA5]"
-                        )}
-                      />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <SidebarMenuSub>
-                      {item.items.map((subItem) => (
-                        <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
-                              <span
-                                className={cn(
-                                  isActive(subItem.url) && "text-[#623BA5]"
-                                )}>
-                                {subItem.title}
-                              </span>
-                            </a>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
-            ) : (
-              <SidebarMenuButton
-                tooltip={item.title}
-                asChild
-                className={cn(
-                  isActive(item.url) && "bg-sidebar-accent rounded-[12px]"
-                )}>
-                <a href={item.url}>
-                  {item.icon && (
-                    <item.icon
-                      className={cn(
-                        "text-sidebar-primary-foreground w-[12px] h-[12px]",
-                        isActive(item.url) && "text-[#623BA5]"
-                      )}
-                    />
-                  )}
-                  <span className={cn("text-sidebar-primary-foreground", isActive(item.url) && "text-[#623BA5]")}>
-                    {item.title}
-                  </span>
-                </a>
-              </SidebarMenuButton>
-            )}
+            <div className="w-full px-2 py-2">
+              <Separator className="bg-[#E5E7EB]" />
+            </div>
+            {secondaryItems.map(renderItem)}
           </>
-        ))}
+        )}
       </SidebarMenu>
     </SidebarGroup>
   );

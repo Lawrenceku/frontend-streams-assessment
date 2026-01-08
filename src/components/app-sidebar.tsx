@@ -6,6 +6,8 @@ import {
   Waves,
   Settings,
   PanelRightClose,
+  Form,
+  Blocks,
 } from "lucide-react";
 import {
   Sidebar,
@@ -29,12 +31,23 @@ const data = {
       url: "/dashboard/tests",
       icon: Binoculars,
     },
-
+    {
+      title: "Forms",
+      url: "/dashboard/forms",
+      icon: Form,
+    },
+    {
+      title: "Blocks",
+      url: "/dashboard/blocks",
+      icon: Blocks,
+    },
     {
       title: "Streams",
       url: "/dashboard/streams",
       icon: Waves,
     },
+  ],
+  navSecondary: [
     {
       title: "Team",
       url: "/dashboard/team",
@@ -54,17 +67,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader className="pt-3 mb-6">
-        <div className={cn("px-2", !open && "px-1.5")}>
+        <div className={cn("px-2")}>
           <PanelRightClose
             onClick={() => setOpen(!open)}
-            className="cursor-pointer rotate-180 w-[18px] h-[18px] text-sidebar-primary-foreground/70"
+            className="cursor-pointer mx-auto rotate-180 w-[24px] h-[38px] text-sidebar-primary-foreground/40"
           />
         </div>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navMain} secondaryItems={data.navSecondary} />
       </SidebarContent>
       <SidebarRail />
-    </Sidebar>
+    </Sidebar >
   );
 }
