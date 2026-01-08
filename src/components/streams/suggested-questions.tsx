@@ -11,7 +11,7 @@ const QUESTIONS = [
 
 export function SuggestedQuestions() {
     return (
-        <div className="flex gap-4 w-full mt-10">
+        <div className="flex flex-col md:flex-row gap-4 w-full mt-6 md:mt-10">
             {QUESTIONS.map((question, i) => (
                 <div
                     key={i}

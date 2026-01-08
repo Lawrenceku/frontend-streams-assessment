@@ -17,7 +17,7 @@ export function AskStreamHeader({ isFocused }: AskStreamHeaderProps) {
         >
             {/* Ask Stream – gradient text */}
             <h1
-                className="text-[57px] font-bold bg-clip-text text-transparent leading-[64px] tracking-[-0.25px]"
+                className="text-[32px] md:text-[57px] font-bold bg-clip-text text-transparent leading-[40px] md:leading-[64px] tracking-[-0.25px]"
                 style={{
                     backgroundImage:
                         "linear-gradient(90deg, #625AFA 0.05%, #272464 22.24%)",
@@ -28,7 +28,7 @@ export function AskStreamHeader({ isFocused }: AskStreamHeaderProps) {
 
             {/* Lorem ipsum – solid background */}
             <h2
-                className="text-[57px] font-bold rounded-md text-[#CAC4D0] leading-[64px] tracking-[-0.25px]"
+                className="text-[32px] md:text-[57px] font-bold rounded-md text-[#CAC4D0] leading-[40px] md:leading-[64px] tracking-[-0.25px]"
             >
                 lorem ipsum
             </h2>

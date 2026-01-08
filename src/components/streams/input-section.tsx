@@ -27,8 +27,8 @@ export function InputSection({ isFocused, setIsFocused, onAnalyze }: InputSectio
                 />
             </div>
 
-            <div className="px-4 flex items-center justify-between">
-                <div className="flex items-center gap-6">
+            <div className="px-2 md:px-4 flex flex-col md:flex-row items-start md:items-center justify-between pb-4 gap-4 md:gap-0">
+                <div className="flex items-center gap-2 md:gap-6">
                     <div className="flex items-center gap-1.5 px-2 py-1 text-[12px]">
                         <span className="text-[#625AFA] bg-[#EFEFFF] rounded-[4px] py-[1px] pr-[4px] pl-[6px] font-bold text-[10px]">✦ Beta</span>
                         <span className="text-[#959AA6] font-medium text-[14px]">Conversational Analytics</span>
