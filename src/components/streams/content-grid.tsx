@@ -44,7 +44,7 @@ export function ContentGrid() {
             {/* Data Source */}
             <div className="col-span-1 bg-white rounded-xl border border-[#E3E8EE] p-6 flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                    <h3 className="text-[14px] font-medium text-[#6B7280]">Data Source</h3>
+                    <h3 className="text-[14px] font-medium text-[#959AA6]">Data Source</h3>
                     <div className="flex items-center gap-1 text-[13px] text-[#4B5563] cursor-pointer">
                         All<Image height={3.75} width={7.5} src="/arrow-icon.svg" alt="arrow-icon" className="w-4 h-4 text-[#6B7280] scale-40" />
                     </div>
@@ -58,7 +58,7 @@ export function ContentGrid() {
                                     {i === 1 ? "Jessibeesocial" : "Sawyer Merritt"}
                                 </span>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[11px] text-[#9CA3AF]">November 20,2025</span>
+                                    <span className="text-[11px] text-[#697386]">November 20,2025</span>
                                     <div className="w-5 h-5 ">
                                         <Image alt="app-store-icon" height={24} width={24} src='app-store-icon.svg' className="w-full rotate-180 text-[#6B7280]" />
                                     </div>

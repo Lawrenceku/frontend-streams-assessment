@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 export function StreamsSidebar() {
     const [openSection, setOpenSection] = useState<string | null>("Today");
-
+    const [active, setActive] = useState(false);
     const toggleSection = (section: string) => {
         setOpenSection(openSection === section ? null : section);
     };
@@ -25,7 +25,13 @@ export function StreamsSidebar() {
                         <div className="bg-[#EFEFFF] text-[#4F566B] text-[13px] font-normal py-2 px-3 rounded-[4px] cursor-pointer">
                             Why is sentiment dropping this...
                         </div>
-                        <div className="text-[13px] text-[#4F566B] py-2 px-3 hover:bg-gray-50 rounded-[4px] cursor-pointer">
+                        <div
+                            onClick={() => setActive(true)}
+                            className={cn(
+                                "text-[13px] text-[#4F566B] py-2 px-3 rounded-[4px] cursor-pointer",
+                                active && "bg-[#EFEFFF]"
+                            )}
+                        >
                             What do people dislike about...
                         </div>
                     </div>
